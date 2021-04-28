@@ -27,10 +27,10 @@ sync_to_remote:
 create_CDS:
 	@echo
 	@echo Creating CDS from GFF and fasta file for 502
-	$(DEV_GFF_READ_EXECUTABLE)/gffread -x $(DEV_DATA)/Fragaria_502_CDS.fasta -g $(DEV_DATA)/502.ragtag.scaffolds.renamed.fasta $(DEV_DATA)/maker_annotation.502.gff_sorted.gff
+	$(DEV_GFF_READ_EXECUTABLE)/gffread -x $(DEV_DATA)/processed_data/Fragaria_502_CDS.fasta -g $(DEV_DATA)/502.ragtag.scaffolds.renamed.fasta $(DEV_DATA)/maker_annotation.502.gff_sorted.gff
 	@echo
 	@echo Creating CDS from GFF and fasta file for sativa
-	$(DEV_GFF_READ_EXECUTABLE)/gffread -x $(DEV_DATA)/Fragaria_562.fasta -g $(DEV_DATA)/562.ragtag.scaffolds.renamed.fasta $(DEV_DATA)/maker_annotation.562.gff_sorted.gff
+	$(DEV_GFF_READ_EXECUTABLE)/gffread -x $(DEV_DATA)/processed_data/Fragaria_562.fasta -g $(DEV_DATA)/562.ragtag.scaffolds.renamed.fasta $(DEV_DATA)/maker_annotation.562.gff_sorted.gff
 
 
 fix_fasta_names:
@@ -44,9 +44,9 @@ fix_fasta_names:
 fix_CDS_names:
 	@echo
 	@echo Fixing the CDS fasta names for 502 so that they are not too long for EDTA
-	python $(ROOT_DIR)/src/fix_cds_names.py $(ROOT_DIR)/results/502_NewNames.fasta 502
+	python $(ROOT_DIR)/src/fix_cds_names.py $(DEV_DATA)/processed_data/502_NewNames.fasta 502
 	@echo Fixing the CDS fasta names for 562 so that they are not too long for EDTA
-	python $(ROOT_DIR)/src/fix_cds_names.py $(ROOT_DIR)/results/562_NewNames.fasta 562
+	python $(ROOT_DIR)/src/fix_cds_names.py $(DEV_DATA)/processed_data/562_NewNames.fasta 562
 	@echo
 
 run_EDTA_HPCC:

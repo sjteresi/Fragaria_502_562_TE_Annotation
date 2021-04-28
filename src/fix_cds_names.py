@@ -59,7 +59,7 @@ if __name__ == "__main__":
     parser.add_argument("fasta_input_file", type=str, help="parent path of fasta file")
     parser.add_argument("genome_id", type=str, help="genome name")
     # NB path declared below
-    output_default = os.path.join(dir_main, "../results")
+    output_default = os.path.join(dir_main, "../data/processed_data")
     parser.add_argument(
         "--output_dir",
         "-o",
