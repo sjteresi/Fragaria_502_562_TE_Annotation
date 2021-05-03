@@ -1,0 +1,30 @@
+#!/bin/bash -login
+
+#SBATCH -J EDTA_Frag_562
+#SBATCH --time=167:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=25
+#SBATCH --mem-per-cpu=30G
+#SBATCH -o EDTA_Frag_562.out
+#--------------------------------------------------------
+# NOTE the user should change these paths to match their machine
+EDTA_DIR=/mnt/research/edgerpat_lab/EDTA
+GENOME_DIR=/mnt/research/edgerpat_lab/Scotty/Fragaria_502_562_TE_Annotation/data/processed_data
+OUT_DATA_DIR=/mnt/research/edgerpat_lab/Scotty/Fragaria_502_562_TE_Annotation/results
+
+# NOTE
+# Do these commands ahead of trying to run EDTA to properly install
+# git clone https://github.com/oushujun/EDTA.git
+# cd EDTA
+# conda env create -f EDTA.yml
+
+module purge
+module load Conda/3
+conda activate EDTA  # activate the conda environment of packages
+
+cd $OUT_DATA_DIR  # cd to output data dir for any extraneous files that get outputted
+# NB this does not capture the .out log file for this sbatch script
+
+# Run EDTA
+# Do 502
+perl $EDTA_DIR/EDTA.pl --genome $GENOME_DIR/562_NewNames.fasta --cds $GENOME_DIR/562_CDS_NewNames.fasta --sensitive 1 --anno 1 --threads 25
