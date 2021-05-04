@@ -27,4 +27,6 @@ cd $OUT_DATA_DIR  # cd to output data dir for any extraneous files that get outp
 
 # Run EDTA
 # Do 502
+# Using the 'NewNames' files because those have the shortened FASTA ID
+# names appropriate for EDTA
 perl $EDTA_DIR/EDTA.pl --genome $GENOME_DIR/562_NewNames.fasta --cds $GENOME_DIR/562_CDS_NewNames.fasta --sensitive 1 --anno 1 --threads 25

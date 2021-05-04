@@ -10,11 +10,7 @@ import argparse
 import os
 import logging
 import coloredlogs
-
-import Bio
 from Bio import SeqIO
-
-import re
 
 
 def reformat_seq_iq(input_fasta, genome_name, output_dir, logger):
@@ -24,19 +20,15 @@ def reformat_seq_iq(input_fasta, genome_name, output_dir, logger):
     if os.path.exists(new_fasta):
         os.remove(new_fasta)  # remove the file because we are in append mode
     if os.path.exists(name_key):
-        os.remove(name_key)
-    name_num = 1
-    pair_dict = {}  # NB this is used to write the conversion key later for
-    # clarity
+        os.remove(name_key)  # remove the file because we are in append mode
 
-    count = 0
-
+    pair_dict = {}  # Used to write the conversion key
     with open(input_fasta, "r") as input_fasta:
         for s_record in SeqIO.parse(input_fasta, "fasta"):
             # NB the s_record.id and s_record.description combined contain
             # all the information for each entry following the '>' character
             # in the fasta
-            s_record.id = s_record.id.split("_")[-1]
+            s_record.id = s_record.id.split("_")[-1]  # MAGIC
             pair_dict[s_record.id] = s_record.description
             s_record.description = ""  # NB edit the description so that when
             # we rewrite we don't have the extraneous info
