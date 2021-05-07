@@ -1,0 +1,4 @@
+biopython==1.78
+coloredlogs==15.0
+humanfriendly==9.1
+numpy==1.20.2
