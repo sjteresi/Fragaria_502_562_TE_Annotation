@@ -8,7 +8,7 @@ DEV_GFF_READ_EXECUTABLE := /home/scott/Documents/Uni/Research/gffread
 # NB I have had trouble running the GFFRead step on the HPCC so I am just going with local machine
 DEV_DATA := $(realpath $(ROOT_DIR)/data)
 
-.PHONY: create_CDS fix_fasta_names fix_CDS_names
+.PHONY: fix_fasta_names fix_CDS_names
 
 sync_to_local:
 	@echo
@@ -30,8 +30,11 @@ create_CDS:
 	@echo Creating CDS from GFF and fasta file for 502
 	$(DEV_GFF_READ_EXECUTABLE)/gffread -x $(DEV_DATA)/processed_data/Fragaria_502_CDS.fasta -g $(DEV_DATA)/502.ragtag.scaffolds.renamed.fasta $(DEV_DATA)/maker_annotation.502.gff_sorted.gff
 	@echo
-	@echo Creating CDS from GFF and fasta file for sativa
+	@echo Creating CDS from GFF and fasta file for 562
 	$(DEV_GFF_READ_EXECUTABLE)/gffread -x $(DEV_DATA)/processed_data/Fragaria_562_CDS.fasta -g $(DEV_DATA)/562.ragtag.scaffolds.renamed.fasta $(DEV_DATA)/maker_annotation.562.gff_sorted.gff
+	@echo
+	@echo Creating CDS from GFF and fasta file for 1008/2339
+	$(DEV_GFF_READ_EXECUTABLE)/gffread -x $(DEV_DATA)/processed_data/Fragaria_1008_2339_CDS.fasta -g $(DEV_DATA)/2339.final.fasta $(DEV_DATA)/2339.maker_annotation.gff_sorted.gff
 
 
 fix_fasta_names:
@@ -41,6 +44,9 @@ fix_fasta_names:
 	@echo Fixing the fasta names for 562 so that they are not too long for EDTA
 	python $(ROOT_DIR)/src/fix_fasta_names.py $(DEV_DATA)/562.ragtag.scaffolds.renamed.fasta 562
 	@echo
+	@echo Fixing the fasta names for 1008/2339 so that they are not too long for EDTA
+	python $(ROOT_DIR)/src/fix_fasta_names.py $(DEV_DATA)/2339.final.fasta 1008_2339
+	@echo
 
 fix_CDS_names:
 	@echo
@@ -48,6 +54,8 @@ fix_CDS_names:
 	python $(ROOT_DIR)/src/fix_cds_names.py $(DEV_DATA)/processed_data/Fragaria_502_CDS.fasta 502
 	@echo Fixing the CDS fasta names for 562 so that they are not too long for EDTA
 	python $(ROOT_DIR)/src/fix_cds_names.py $(DEV_DATA)/processed_data/Fragaria_562_CDS.fasta 562
+	@echo Fixing the CDS fasta names for 1008/2339 so that they are not too long for EDTA
+	python $(ROOT_DIR)/src/fix_cds_names.py $(DEV_DATA)/processed_data/Fragaria_1008_2339_CDS.fasta 1008_2339
 	@echo
 
 run_EDTA_HPCC:
@@ -55,5 +63,5 @@ run_EDTA_HPCC:
 	sbatch $(ROOT_DIR)/src/Annotate_Fragaria_502.sb
 	@echo Running EDTA for 562
 	sbatch $(ROOT_DIR)/src/Annotate_Fragaria_562.sb
-
-
+	@echo Running EDTA for 1008_2339
+	sbatch $(ROOT_DIR)/src/Annotate_Fragaria_1008_2339.sb
