@@ -1,0 +1,177 @@
+
+########################################################
+##### Extensive de-novo TE Annotator (EDTA) v1.9.7  ####
+##### Shujun Ou (shujun.ou.1@gmail.com)             ####
+########################################################
+
+
+
+Wed Jun 30 12:42:19 EDT 2021	Dependency checking:
+				All passed!
+
+	A CDS file /mnt/research/edgerpat_lab/Scotty/Fragaria_TE_Annotations/data/processed_data/562_CDS_NewNames.fasta is provided via --cds. Please make sure this is the DNA sequence of coding regions only.
+
+Wed Jun 30 12:42:30 EDT 2021	Obtain raw TE libraries using various structure-based programs: 
+Wed Jun 30 12:42:30 EDT 2021	EDTA_raw: Check dependencies, prepare working directories.
+
+Wed Jun 30 12:42:33 EDT 2021	Start to find LTR candidates.
+
+Wed Jun 30 12:42:33 EDT 2021	Identify LTR retrotransposon candidates from scratch.
+
+Wed Jun 30 13:02:01 EDT 2021	Finish finding LTR candidates.
+
+Wed Jun 30 13:02:01 EDT 2021	Start to find TIR candidates.
+
+Wed Jun 30 13:02:01 EDT 2021	Identify TIR candidates from scratch.
+
+Species: others
+Wed Jun 30 16:14:30 EDT 2021	Finish finding TIR candidates.
+
+Wed Jun 30 16:14:30 EDT 2021	Start to find Helitron candidates.
+
+Wed Jun 30 16:14:30 EDT 2021	Identify Helitron candidates from scratch.
+
+Wed Jun 30 17:50:15 EDT 2021	Finish finding Helitron candidates.
+
+Wed Jun 30 17:50:15 EDT 2021	Execution of EDTA_raw.pl is finished!
+
+Wed Jun 30 17:50:15 EDT 2021	Obtain raw TE libraries finished.
+				All intact TEs found by EDTA: 
+					562_NewNames.fasta.mod.EDTA.intact.fa
+					562_NewNames.fasta.mod.EDTA.intact.gff3
+
+Wed Jun 30 17:50:15 EDT 2021	Perform EDTA advance filtering for raw TE candidates and generate the stage 1 library: 
+
+Wed Jun 30 18:07:53 EDT 2021	EDTA advance filtering finished.
+
+Wed Jun 30 18:07:53 EDT 2021	Perform EDTA final steps to generate a non-redundant comprehensive TE library:
+
+				Use RepeatModeler to identify any remaining TEs that are missed by structure-based methods.
+
+2021-07-01 21:44:35,531 -WARNING- Grid computing is not available because DRMAA not configured properly: Could not find drmaa library.  Please specify its full path using the environment variable DRMAA_LIBRARY_PATH
+2021-07-01 21:44:35,633 -INFO- VARS: {'sequence': '562_NewNames.fasta.mod.RM.consensi.fa', 'hmm_database': 'rexdb', 'seq_type': 'nucl', 'prefix': '562_NewNames.fasta.mod.RM.consensi.fa.rexdb', 'force_write_hmmscan': False, 'processors': 10, 'tmp_dir': './tmp', 'min_coverage': 20, 'max_evalue': 0.001, 'disable_pass2': False, 'pass2_rule': '80-80-80', 'no_library': False, 'no_reverse': False, 'no_cleanup': False, 'p2_identity': 80.0, 'p2_coverage': 80.0, 'p2_length': 80.0}
+2021-07-01 21:44:35,633 -INFO- checking dependencies:
+2021-07-01 21:44:35,709 -INFO- hmmer	3.3.1	OK
+2021-07-01 21:44:35,777 -INFO- blastn	2.10.0+	OK
+2021-07-01 21:44:35,781 -INFO- check database rexdb
+2021-07-01 21:44:35,781 -INFO- db path: /mnt/ufs18/home-115/teresisc/anaconda3/envs/EDTA/lib/python3.6/site-packages/TEsorter/database
+2021-07-01 21:44:35,782 -INFO- db file: REXdb_protein_database_viridiplantae_v3.0_plus_metazoa_v3.hmm
+2021-07-01 21:44:35,782 -INFO- REXdb_protein_database_viridiplantae_v3.0_plus_metazoa_v3.hmm	OK
+2021-07-01 21:44:35,782 -INFO- Start classifying pipeline
+2021-07-01 21:44:35,938 -INFO- total 600 sequences
+2021-07-01 21:44:35,938 -INFO- translating `562_NewNames.fasta.mod.RM.consensi.fa` in six frames
+/mnt/home/teresisc/anaconda3/envs/EDTA/lib/python3.6/site-packages/Bio/Seq.py:2338: BiopythonWarning: Partial codon, len(sequence) not a multiple of three. Explicitly trim the sequence or add trailing N before translation. This may become an error in future.
+  BiopythonWarning,
+2021-07-01 21:44:36,885 -INFO- HMM scanning against `/mnt/ufs18/home-115/teresisc/anaconda3/envs/EDTA/lib/python3.6/site-packages/TEsorter/database/REXdb_protein_database_viridiplantae_v3.0_plus_metazoa_v3.hmm`
+2021-07-01 21:44:36,925 -INFO- Creating server instance (pp-1.6.4.4)
+2021-07-01 21:44:36,925 -INFO- Running on Python 3.6.12 linux
+2021-07-01 21:44:37,647 -INFO- pp local server started with 10 workers
+2021-07-01 21:44:37,749 -INFO- Task 0 started
+2021-07-01 21:44:37,749 -INFO- Task 1 started
+2021-07-01 21:44:37,749 -INFO- Task 2 started
+2021-07-01 21:44:37,750 -INFO- Task 3 started
+2021-07-01 21:44:37,750 -INFO- Task 4 started
+2021-07-01 21:44:37,750 -INFO- Task 5 started
+2021-07-01 21:44:37,750 -INFO- Task 6 started
+2021-07-01 21:44:37,750 -INFO- Task 7 started
+2021-07-01 21:44:37,751 -INFO- Task 8 started
+2021-07-01 21:44:37,751 -INFO- Task 9 started
+2021-07-01 21:44:52,694 -INFO- generating gene anntations
+2021-07-01 21:44:52,733 -INFO- 51 sequences classified by HMM
+2021-07-01 21:44:52,733 -INFO- see protein domain sequences in `562_NewNames.fasta.mod.RM.consensi.fa.rexdb.dom.faa` and annotation gff3 file in `562_NewNames.fasta.mod.RM.consensi.fa.rexdb.dom.gff3`
+2021-07-01 21:44:52,733 -INFO- classifying the unclassified sequences by searching against the classified ones
+2021-07-01 21:44:52,754 -INFO- using the 80-80-80 rule
+2021-07-01 21:44:52,755 -INFO- run CMD: `makeblastdb -in ./tmp/pass1_classified.fa -dbtype nucl`
+2021-07-01 21:44:52,888 -INFO- run CMD: `blastn -query ./tmp/pass1_unclassified.fa -db ./tmp/pass1_classified.fa -out ./tmp/pass1_unclassified.fa.blastout -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen qcovs qcovhsp sstrand' -num_threads 10`
+2021-07-01 21:44:53,103 -INFO- 1 sequences classified in pass 2
+2021-07-01 21:44:53,105 -INFO- total 52 sequences classified.
+2021-07-01 21:44:53,105 -INFO- see classified sequences in `562_NewNames.fasta.mod.RM.consensi.fa.rexdb.cls.tsv`
+2021-07-01 21:44:53,105 -INFO- writing library for RepeatMasker in `562_NewNames.fasta.mod.RM.consensi.fa.rexdb.cls.lib`
+2021-07-01 21:44:53,123 -INFO- writing classified protein domains in `562_NewNames.fasta.mod.RM.consensi.fa.rexdb.cls.pep`
+2021-07-01 21:44:53,126 -INFO- Summary of classifications:
+Order           Superfamily      # of Sequences# of Clade Sequences    # of Clades# of full Domains
+LTR             Copia                         1              1              1              0
+LTR             Gypsy                        11              8              3              0
+pararetrovirus  unknown                       2              0              0              0
+LINE            unknown                      28              0              0              0
+TIR             EnSpm_CACTA                   3              0              0              0
+TIR             MuDR_Mutator                  5              0              0              0
+TIR             PIF_Harbinger                 2              0              0              0
+2021-07-01 21:44:53,126 -INFO- Pipeline done.
+2021-07-01 21:44:53,126 -INFO- cleaning the temporary directory ./tmp
+Thu Jul  1 21:53:21 EDT 2021	Clean up TE-related sequences in the CDS file with TEsorter:
+
+2021-07-01 21:53:22,788 -WARNING- Grid computing is not available because DRMAA not configured properly: Could not find drmaa library.  Please specify its full path using the environment variable DRMAA_LIBRARY_PATH
+2021-07-01 21:53:22,793 -INFO- VARS: {'sequence': '562_CDS_NewNames.fasta.code', 'hmm_database': 'rexdb', 'seq_type': 'nucl', 'prefix': '562_CDS_NewNames.fasta.code.rexdb', 'force_write_hmmscan': False, 'processors': 10, 'tmp_dir': './tmp', 'min_coverage': 20, 'max_evalue': 0.001, 'disable_pass2': False, 'pass2_rule': '80-80-80', 'no_library': False, 'no_reverse': False, 'no_cleanup': False, 'p2_identity': 80.0, 'p2_coverage': 80.0, 'p2_length': 80.0}
+2021-07-01 21:53:22,794 -INFO- checking dependencies:
+2021-07-01 21:53:22,835 -INFO- hmmer	3.3.1	OK
+2021-07-01 21:53:22,888 -INFO- blastn	2.10.0+	OK
+2021-07-01 21:53:22,891 -INFO- check database rexdb
+2021-07-01 21:53:22,891 -INFO- db path: /mnt/ufs18/home-115/teresisc/anaconda3/envs/EDTA/lib/python3.6/site-packages/TEsorter/database
+2021-07-01 21:53:22,891 -INFO- db file: REXdb_protein_database_viridiplantae_v3.0_plus_metazoa_v3.hmm
+2021-07-01 21:53:22,892 -INFO- REXdb_protein_database_viridiplantae_v3.0_plus_metazoa_v3.hmm	OK
+2021-07-01 21:53:22,892 -INFO- Start classifying pipeline
+2021-07-01 21:53:23,146 -INFO- total 35420 sequences
+2021-07-01 21:53:23,147 -INFO- translating `562_CDS_NewNames.fasta.code` in six frames
+/mnt/home/teresisc/anaconda3/envs/EDTA/lib/python3.6/site-packages/Bio/Seq.py:2338: BiopythonWarning: Partial codon, len(sequence) not a multiple of three. Explicitly trim the sequence or add trailing N before translation. This may become an error in future.
+  BiopythonWarning,
+2021-07-01 21:54:06,328 -INFO- HMM scanning against `/mnt/ufs18/home-115/teresisc/anaconda3/envs/EDTA/lib/python3.6/site-packages/TEsorter/database/REXdb_protein_database_viridiplantae_v3.0_plus_metazoa_v3.hmm`
+2021-07-01 21:54:08,177 -INFO- Creating server instance (pp-1.6.4.4)
+2021-07-01 21:54:08,177 -INFO- Running on Python 3.6.12 linux
+2021-07-01 21:54:08,862 -INFO- pp local server started with 10 workers
+2021-07-01 21:54:08,882 -INFO- Task 0 started
+2021-07-01 21:54:08,882 -INFO- Task 1 started
+2021-07-01 21:54:08,882 -INFO- Task 2 started
+2021-07-01 21:54:08,882 -INFO- Task 3 started
+2021-07-01 21:54:08,882 -INFO- Task 4 started
+2021-07-01 21:54:08,883 -INFO- Task 5 started
+2021-07-01 21:54:08,883 -INFO- Task 6 started
+2021-07-01 21:54:08,883 -INFO- Task 7 started
+2021-07-01 21:54:08,883 -INFO- Task 8 started
+2021-07-01 21:54:08,884 -INFO- Task 9 started
+2021-07-01 22:11:46,435 -INFO- generating gene anntations
+2021-07-01 22:11:48,640 -INFO- 759 sequences classified by HMM
+2021-07-01 22:11:48,641 -INFO- see protein domain sequences in `562_CDS_NewNames.fasta.code.rexdb.dom.faa` and annotation gff3 file in `562_CDS_NewNames.fasta.code.rexdb.dom.gff3`
+2021-07-01 22:11:48,641 -INFO- classifying the unclassified sequences by searching against the classified ones
+2021-07-01 22:11:49,704 -INFO- using the 80-80-80 rule
+2021-07-01 22:11:49,704 -INFO- run CMD: `makeblastdb -in ./tmp/pass1_classified.fa -dbtype nucl`
+2021-07-01 22:11:49,921 -INFO- run CMD: `blastn -query ./tmp/pass1_unclassified.fa -db ./tmp/pass1_classified.fa -out ./tmp/pass1_unclassified.fa.blastout -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen qcovs qcovhsp sstrand' -num_threads 10`
+2021-07-01 22:11:56,867 -INFO- 216 sequences classified in pass 2
+2021-07-01 22:11:56,867 -INFO- total 975 sequences classified.
+2021-07-01 22:11:56,867 -INFO- see classified sequences in `562_CDS_NewNames.fasta.code.rexdb.cls.tsv`
+2021-07-01 22:11:56,868 -INFO- writing library for RepeatMasker in `562_CDS_NewNames.fasta.code.rexdb.cls.lib`
+2021-07-01 22:11:57,660 -INFO- writing classified protein domains in `562_CDS_NewNames.fasta.code.rexdb.cls.pep`
+2021-07-01 22:11:57,683 -INFO- Summary of classifications:
+Order           Superfamily      # of Sequences# of Clade Sequences    # of Clades# of full Domains
+LTR             Bel-Pao                       9              0              0              0
+LTR             Copia                       159            105             15              1
+LTR             Gypsy                       177            142             17             11
+LTR             Retrovirus                    6              0              0              0
+LTR             mixture                       3              0              0              0
+pararetrovirus  unknown                       2              0              0              0
+Penelope        unknown                       1              0              0              0
+LINE            unknown                     168              0              0              0
+TIR             EnSpm_CACTA                  10              0              0              0
+TIR             Merlin                        1              0              0              0
+TIR             MuDR_Mutator                139              0              0              0
+TIR             PIF_Harbinger                17              0              0              0
+TIR             Tc1_Mariner                   2              0              0              0
+TIR             hAT                         120              0              0              0
+Helitron        unknown                      18              0              0              0
+Maverick        unknown                     136              0              0              0
+mixture         mixture                       7              0              0              0
+2021-07-01 22:11:57,684 -INFO- Pipeline done.
+2021-07-01 22:11:57,684 -INFO- cleaning the temporary directory ./tmp
+				Remove CDS-related sequences in the EDTA library:
+
+Thu Jul  1 22:25:21 EDT 2021	EDTA final stage finished! You may check out:
+				The final EDTA TE library: 562_NewNames.fasta.mod.EDTA.TElib.fa
+Thu Jul  1 22:25:22 EDT 2021	Perform post-EDTA analysis for whole-genome annotation:
+
+Thu Jul  1 22:25:22 EDT 2021	Homology-based annotation of TEs using 562_NewNames.fasta.mod.EDTA.TElib.fa from scratch.
+
+Thu Jul  1 22:46:56 EDT 2021	TE annotation using the EDTA library has finished! Check out:
+				Whole-genome TE annotation (total TE: 31.96%): 562_NewNames.fasta.mod.EDTA.TEanno.gff3
+				Whole-genome TE annotation summary: 562_NewNames.fasta.mod.EDTA.TEanno.sum
+				Low-threshold TE masking for MAKER gene annotation (masked: 15.55%): 562_NewNames.fasta.mod.MAKER.masked
+
