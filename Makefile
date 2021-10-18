@@ -7,6 +7,7 @@ DEV_GFF_READ_EXECUTABLE := /home/scott/Documents/Uni/Research/gffread
 # DEV_GFF_READ_EXECUTABLE := /mnt/research/edgerpat_lab/Scotty/gffread  # HPCC path
 # NB I have had trouble running the GFFRead step on the HPCC so I am just going with local machine
 DEV_DATA := $(realpath $(ROOT_DIR)/data)
+DEV_RESULTS := $(realpath $(ROOT_DIR)/results)
 
 .PHONY: fix_fasta_names fix_CDS_names
 
@@ -48,6 +49,7 @@ fix_fasta_names:
 	python $(ROOT_DIR)/src/fix_fasta_names.py $(DEV_DATA)/2339.final.fasta 1008_2339
 	@echo
 
+
 fix_CDS_names:
 	@echo
 	@echo Fixing the CDS fasta names for 502 so that they are not too long for EDTA
@@ -56,6 +58,10 @@ fix_CDS_names:
 	python $(ROOT_DIR)/src/fix_cds_names.py $(DEV_DATA)/processed_data/Fragaria_562_CDS.fasta 562
 	@echo Fixing the CDS fasta names for 1008/2339 so that they are not too long for EDTA
 	python $(ROOT_DIR)/src/fix_cds_names.py $(DEV_DATA)/processed_data/Fragaria_1008_2339_CDS.fasta 1008_2339
+	@echo
+
+fix_CDS_names_H4:
+	python $(ROOT_DIR)/src/fix_cds_names_H4.py $(DEV_DATA)/H4/Fragaria_vesca_v4.0.a1_makerStandard_CDS.fasta H4 -o $(DEV_RESULTS)/H4_Inputs
 	@echo
 
 run_EDTA_HPCC:
